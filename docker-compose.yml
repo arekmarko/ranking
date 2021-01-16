@@ -1,0 +1,28 @@
+version: '3'
+services:
+    my_app:
+        image: thecodingmachine/php:7.4-v4-apache
+        volumes:
+            - ./www:/var/www/html
+        environment:
+            PHP_EXTENSION_GD: 1
+        ports:
+            - 8000:80
+        links:
+            - db
+        depends_on:
+            - db
+    db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: example
+            MYSQL_DATABASE: ranking
+        volumes:
+            - ./dump:/docker-entrypoint-initdb.d
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
