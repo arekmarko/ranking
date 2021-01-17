@@ -21,7 +21,7 @@
          width="500" height="500">
     <h4>Obecny wynik: <?php echo $value['score'] ?></h4>
     <br>
-    <a href="/oddaj-glos?element=<?php echo $value['id'] ?>">Oddaj głos na element</a>
+    <a href="/oddaj-glos.php?element_id=<?php echo $value['id'] ?>">Oddaj głos na element</a>
 </div>
 
 <?php
