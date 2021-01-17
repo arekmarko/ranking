@@ -1,15 +1,19 @@
 <?php
-session_start();
-$_SESSION = array();
-
-include("simple-php-captcha.php");
-$_SESSION['captcha'] = simple_php_captcha();
-
+    session_start();
+    if (isset($_POST['vote'])){
+        $vote = $_POST['vote'];
+    }
+    $_SESSION['vote'] = $vote;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Pai &raquo; System rankingowy</title>
+    <style>
+        .g-recaptcha {
+            
+        }
+    </style>
 </head>
 <body>
     <h1>
@@ -35,7 +39,7 @@ if (isset($_POST['submit'])) {
     $url = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip");
     $result = json_decode($url, TRUE);
     if ($result['success'] == 1) {
-      echo 'Nie jesteś botem';
+        header('Location: post.php');
     }else{
       echo 'Błędnie wypełnione pole reCAPTCHA';
     }
