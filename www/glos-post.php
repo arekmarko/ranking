@@ -27,6 +27,10 @@ if (mysqli_fetch_row($spam_result)[0] != 0) {
 
 $spam_result->close();
 
+$vote_val = intval($_POST['vote_val']);
+if ($vote_val > 5) $vote_val = 5;
+if ($vote_val < 1) $vote_val = 1;
+
 $insert_query = "insert into votes (voter_ip, vote_val, element_id) values (?, ?, ?)";
 $statement = $conn->prepare($insert_query);
 $statement->bind_param("sss", $remote_addr, $_POST['vote_val'], $_POST['element_id']);

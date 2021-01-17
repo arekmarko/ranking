@@ -1,10 +1,3 @@
-create table test_tabela(
-    id int primary key,
-    nazwa varchar(255)
-);
-
-insert into test_tabela values (1, 'siemanko');
-
 create table elements(
     id int primary key auto_increment,
     title varchar(255) not null,
