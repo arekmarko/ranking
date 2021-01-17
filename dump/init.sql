@@ -26,3 +26,15 @@ create table votes(
     element_id int,
     foreign key (element_id) references elements(id)
 );
+
+insert into votes (voter_ip, vote_val, element_id) values ('test', 4, 1);
+insert into votes (voter_ip, vote_val, element_id) values ('test', 3, 1);
+insert into votes (voter_ip, vote_val, element_id) values ('test', 1, 1);
+
+insert into votes (voter_ip, vote_val, element_id) values ('test', 1, 2);
+insert into votes (voter_ip, vote_val, element_id) values ('test', 4, 2);
+insert into votes (voter_ip, vote_val, element_id) values ('test', 4, 2);
+
+insert into votes (voter_ip, vote_val, element_id) values ('test', 4, 3);
+insert into votes (voter_ip, vote_val, element_id) values ('test', 1, 3);
+insert into votes (voter_ip, vote_val, element_id) values ('test', 1, 3);
