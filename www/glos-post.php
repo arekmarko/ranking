@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION['captcha'])) {
+    echo "Błąd: nieustawiona captcha. Spróbuj ponownie.";
+    exit;
+}
+
+if ($_SESSION['captcha'] != $_POST['captcha']) {
+    echo "Niepoprawnie przepisana captcha. Spróbuj ponownie.";
+    exit;
+}
+
 require "./db_connection.php";
 $conn = get_db_connection();
 

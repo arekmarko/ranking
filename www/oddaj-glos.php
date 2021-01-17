@@ -27,6 +27,13 @@
             <label for="vote_val"><p>Wartość głosu</p></label>
             <input id="vote_val" type="number" min="1" max="5" value="3" name="vote_val">
         </div>
+
+        <div>
+            <label for="captcha"><p> Przepisz tekst z obrazka: </p></label>
+            <img src="captcha.php">
+            <input type="text" id="captcha" name="captcha">
+        </div>
+
         <input type="submit" value="Oddaj głos">
     </form>
 </body>
